@@ -52,14 +52,17 @@ function BuscaIncidents() {
 function CreaNouPrego() {
   nom = document.getElementById("TitolNou").value;
   des = document.getElementById("DescripcioNou").value;
-  AfegirFirebasePrego(nom, des);
-  document.getElementById('linea').innerHTML = "";
-  BuscaPregons();
+  if (nom != "" && des != "") {
+    AfegirFirebasePrego(nom, des);
+    document.getElementById('linea').innerHTML = "";
+    BuscaPregons();
+  }
+
 }
 
 function AfegirFirebasePrego(nom, des) {
   database.ref('prego/'+nom).set({
-    titol: "titol" + nom,
+    titol: nom,
     descripcio: des
   });
 }
