@@ -7,35 +7,34 @@
         <meta name="description" content="Prova">
         <meta name="author" content="REs util">
         <meta name="viewport" content="initial-scale=1.0">
-    <meta charset="utf-8">
-    <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
-        <title>Metropolis</title>
+		<meta charset="utf-8">
+
+        <style>
+	        #map {
+	            height: 100%;
+       		}
+	        html, body {
+	            height: 100%;
+	            margin: 0;
+	            padding: 0;
+	        }
+        </style>
+
+        <title>Metropolis Ajuantament</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     </head>
 
-  <body onload="BuscaPregons()" onload="BuscaIncidents()">
+  <body onload="BuscaElements()">
 
     <header>
 
       <div class="navbar navbar-dark bg-dark shadow-sm">
         <div class="container d-flex justify-content-between">
           <a href="https://vimeo.com/14831026" class="navbar-brand d-flex align-items-center">
-            <strong>Metropolis</strong>
+            <strong>Metropolis Ajuntament</strong>
           </a>
         </div>
       </div>
@@ -46,53 +45,32 @@
       <section class="jumbotron text-center">
         <h1 class="jumbotron-heading">Announcement</h1>
         
-        <div id="linea"></div>
+        <div id="lineaPre"></div>
           <div class="card mb-4 shadow-sm">
               <div class="card-header">
                   <input id="TitolNou" class="my-0 font-weight-normal" placeholder="Add title">
               </div>
+
+              <div class="card-header">
+                  <input type="datetime-local" id="Hora" name="party-time" value="DD/MM/YYT--:--" />
+              </div>
+
               <div class="card-body">
                   <input id="DescripcioNou" class="my-0 font-weight-normal" placeholder="Add description">
-                <button onclick="CreaNouPrego();" type="button" class="btn btn-sm btn-outline-secondary">Create</button>
+               <button onclick="CreaNouPrego();" type="button" class="btn btn-sm btn-outline-secondary">Create</button>
             </div> 
       </section>
       <section class="jumbotron text-center">
             <h1 class="jumbotron-heading">Incidences</h1>
             
-            <div id="linea"></div>
+            <div id="lineaInc"></div>
         </section>
 
-        <section class="jumbotron text-center">
-            <h1 class="jumbotron-heading">Incidences</h1>
-            <div id="map"></div>
-    <script>
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8
-        });
-      }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADgOgo0fMi7PkzMG4I0GmznwLKI1qRZ-Q&callback=initMap"
-    async defer></script>  
-        </section>
-
-         
-
+      <div id="map"></div>
 
     </main>
-    <script>
-            var map;
-            function initMap() {
-              map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: -34.397, lng: 150.644},
-                zoom: 8
-              });
-            }
-          </script>
-    
-    async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADgOgo0fMi7PkzMG4I0GmznwLKI1qRZ-Q&callback=initMap"
+        async defer></script>
     <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-database.js"></script>
     <!-- <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js"></script> -->
